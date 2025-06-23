@@ -1,0 +1,52 @@
+main {
+  flex-direction: column;
+  display: flex;
+}
+
+h1 {
+  font-size: clamp(1rem, 2.5vw, 2rem);
+}
+
+#forms_container {
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+#forms_container > form {
+  flex-direction: row;
+  display: flex;
+}
+
+#forms_container > div {
+  border-bottom: 1px solid #ccc;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  display: flex;
+}
+
+#forms_container > div > form {
+  flex-direction: row;
+  display: flex;
+}
+
+#table_panel {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+tbody {
+  cursor: pointer;
+}
+
+.selected {
+  opacity: .7;
+  transition: all .1s ease-in;
+}
+/*# sourceMappingURL=Practice.e9a92ad8.css.map */

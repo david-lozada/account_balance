@@ -1,0 +1,48 @@
+main {
+	display: flex;
+	flex-direction: column;
+}
+
+h1 {
+	font-size: clamp(1rem, 2.5vw, 2rem);
+}
+#forms_container { 
+	position: relative;
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+}
+#forms_container > form {
+	display: flex;
+	flex-direction: row;
+}
+#forms_container > div {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid #ccc;
+	width: 50%;
+}
+
+#forms_container > div > form {
+	display: flex;
+	flex-direction: row;
+}
+
+#table_panel {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+tbody {
+	cursor: pointer;
+}
+
+.selected {
+    opacity: 0.7;
+    transition: all 0.1s ease-in;
+}
