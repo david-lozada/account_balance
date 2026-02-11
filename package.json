@@ -1,17 +1,21 @@
 {
-  "name": "Practice",
+  "name": "account_balance",
+  "homepage": "https://your-username.github.io/account_balance/",
   "version": "1.0.0",
   "description": "",
   "type": "module",
   "source": "./js/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel index.html",
+    "build": "parcel build index.html --public-url ./",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.10.0",
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "parcel": "2.15.4"
   }
 }

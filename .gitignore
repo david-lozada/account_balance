@@ -1,0 +1,6 @@
+# Account Balance Manager
+
+node_modules/
+.parcel-cache/
+dist/
+.env
