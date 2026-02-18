@@ -10,7 +10,12 @@ class ExpenseTransaction {
 
     addExpense(...expenses) {
         this.expenses.push(...expenses);
-        this.saveExpensesToLocalStorage();
+        try {
+            this.saveExpensesToLocalStorage();
+            console.info('ExpenseTransaction: saved expenses to localStorage', this.expenses);
+        } catch (err) {
+            console.error('ExpenseTransaction: failed to save expenses to localStorage', err);
+        }
     }
 
     removeExpense(expenses) {
@@ -27,7 +32,12 @@ class ExpenseTransaction {
     }
 
     saveExpensesToLocalStorage() {
-        localStorage.setItem('expenses', JSON.stringify(this.expenses));
+        try {
+            localStorage.setItem('expenses', JSON.stringify(this.expenses));
+        } catch (err) {
+            console.error('ExpenseTransaction.saveExpensesToLocalStorage error', err);
+            throw err;
+        }
     }
 }
 export default ExpenseTransaction;

@@ -10,7 +10,12 @@ class IncomeTransaction {
 
     addIncome(...incomes) {
         this.incomes.push(...incomes);
-        this.saveIncomesToLocalStorage();
+        try {
+            this.saveIncomesToLocalStorage();
+            console.info('IncomeTransaction: saved incomes to localStorage', this.incomes);
+        } catch (err) {
+            console.error('IncomeTransaction: failed to save incomes to localStorage', err);
+        }
     }
 
     removeIncome(incomes) {
@@ -28,7 +33,14 @@ class IncomeTransaction {
     }
 
     saveIncomesToLocalStorage() {
-        localStorage.setItem('incomes', JSON.stringify(this.incomes));
+        // wrap in try/catch so we can surface errors (quota, private mode, etc.)
+        try {
+            localStorage.setItem('incomes', JSON.stringify(this.incomes));
+        } catch (err) {
+            // rethrow so callers can detect failure if needed
+            console.error('IncomeTransaction.saveIncomesToLocalStorage error', err);
+            throw err;
+        }
     }
 }
 
