@@ -1,8 +1,9 @@
 export function hasEmptyValues(data) {
   // Iterate over each key and check its value
-  for (const value in data) {
+  for (const key in data) {
     // Check if the value is empty
-    if (data[value] === "" || data[value] === null || data[value] === undefined || (typeof data[value] === 'string' && value.trim() === "")) {
+    const value = data[key]
+    if (value === "" || value === null || value === undefined || (typeof value === 'string' && value.trim() === "")) {
       return true; // Found an empty value
     }
   }

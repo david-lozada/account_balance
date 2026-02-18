@@ -1,11 +1,11 @@
-import AccountTransaction from "./accountTransaction"
-import { fillTable, removeTableRecords } from './table'
+import AccountTransaction from "./accountTransaction.js"
+import { fillTable, removeTableRecords } from './table.js'
 import { hasEmptyValues, 
   clearForm, 
   focusForm, 
   totalIncomes, 
   totalExpenses, 
-  accountBalance } from "./utils"
+  accountBalance } from "./utils.js"
 
 window.onload = () => {
   focusForm('#income')

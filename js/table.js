@@ -12,16 +12,18 @@ export function addTableRecord(record, type) {
 }
 
 export function removeTableRecords() {
-  const recordsToRemove = {}
+  const recordsToRemove = []
   const recordsInTable = document.querySelectorAll('.selected')
-  for (const record of recordsInTable) {
-    for (const cell of record.children) {
+  for (const recordEl of recordsInTable) {
+    const record = {}
+    for (const cell of recordEl.children) {
       const key = cell.getAttribute('data-name')
-      Object.assign(recordsToRemove, {[key]: key === 'amount' ? parseInt(cell.textContent): cell.textContent})
+      record[key] = key === 'amount' ? parseInt(cell.textContent) : cell.textContent
     }
-    record.remove()
+    recordsToRemove.push(record)
+    recordEl.remove()
   }
-  return [recordsToRemove]
+  return recordsToRemove
 }
 
 export function clearTableBody(tableBody) {
