@@ -33,9 +33,14 @@ window.onload = () => {
 
   const incomeForm = document.querySelector('#income')
   const expenseForm = document.querySelector('#expense')
+  const incomeBtn = document.querySelector('#income_add_btn')
+  const expenseBtn = document.querySelector('#expense_add_btn')
   const removeBtn = document.querySelector('#remove_btn')
   incomeForm.addEventListener('submit', handleIncome)
   expenseForm.addEventListener('submit', handleExpense)
+  // Also handle button clicks so forms don't rely on native submission
+  if (incomeBtn) incomeBtn.addEventListener('click', (evt) => handleIncome({ target: incomeForm, preventDefault: () => {} }))
+  if (expenseBtn) expenseBtn.addEventListener('click', (evt) => handleExpense({ target: expenseForm, preventDefault: () => {} }))
   removeBtn.addEventListener('click', () => {
     const selectedRecords = removeTableRecords()
     const incomeSelected = selectedRecords.filter(item => item.type === 'Income').map(item => item.id)
