@@ -30,5 +30,4 @@ class ExpenseTransaction {
         localStorage.setItem('expenses', JSON.stringify(this.expenses));
     }
 }
-
 export default ExpenseTransaction;
